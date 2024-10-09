@@ -74,7 +74,7 @@ class Troco {
                 if (troco.papeisMoeda[i] != null) {
                     ret = troco.papeisMoeda[i];
                     troco.papeisMoeda[i] = null;
-                    return ret;
+                    break;
                 }
             }
             return ret;
