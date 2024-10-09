@@ -49,7 +49,7 @@ public class TicketMachine {
         this.saldo -= this.valor;
 
         String result = "*****************\n";
-        result += "*** R$ " + saldo + ",00 ****\n";
+        result += "*** R$ " + this.valor + ",00 ****\n";
         result += "*****************\n";
         return result;
     }
