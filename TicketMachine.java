@@ -38,6 +38,7 @@ public class TicketMachine {
     }
 
     public Iterator<PapelMoeda> getTroco() {
+        // Retorno do troco
         return troco.getIterator();
     }
 
