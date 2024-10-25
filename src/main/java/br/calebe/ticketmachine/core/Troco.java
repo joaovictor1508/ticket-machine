@@ -13,39 +13,39 @@ class Troco {
     public Troco(int valor) {
         papeisMoeda = new PapelMoeda[6];
         int count = 0;
-        while (valor >= 100) {
-            count++;
+        while (valor % 100 < valor) {
             valor -= 100;
+            count++;
         }
         papeisMoeda[5] = new PapelMoeda(100, count);
         count = 0;
-        while (valor >= 50) {
-            count++;
+        while (valor % 50 < valor) {
             valor -= 50;
+            count++;
         }
         papeisMoeda[4] = new PapelMoeda(50, count);
         count = 0;
-        while (valor >= 20) {
-            count++;
+        while (valor % 20 < valor) {
             valor -= 20;
+            count++;
         }
         papeisMoeda[3] = new PapelMoeda(20, count);
         count = 0;
-        while (valor >= 10) {
-            count++;
+        while (valor % 10 < valor) {
             valor -= 10;
+            count++;
         }
         papeisMoeda[2] = new PapelMoeda(10, count);
         count = 0;
-        while (valor >= 5) {
-            count++;
+        while (valor % 5 < valor) {
             valor -= 5;
+            count++;
         }
         papeisMoeda[1] = new PapelMoeda(5, count);
         count = 0;
-        while (valor >= 2) {
-            count++;
+        while (valor % 2 < valor) {
             valor -= 2;
+            count++;
         }
         papeisMoeda[0] = new PapelMoeda(2, count);
     }
@@ -75,11 +75,10 @@ class Troco {
         @Override
         public PapelMoeda next() {
             PapelMoeda ret = null;
-            for (int i = 5; i >= 0; i--) {
+            for (int i = 5; i >= 0 && ret == null; i--) {
                 if (troco.papeisMoeda[i] != null) {
                     ret = troco.papeisMoeda[i];
                     troco.papeisMoeda[i] = null;
-                    break;
                 }
             }
             return ret;
